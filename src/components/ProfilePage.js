@@ -50,7 +50,7 @@ const ProfilePage = () => {
   return (
     <>
       <CssBaseline />
-      <Grid container direction="row" justify="center" alignitems="center">
+      <Grid container direction="row" justify="center" alignitems="stretch">
         <Grid item xs={3} className={classes.paper}>
           <Card className={classes.card} justify="center" height={300}>
             <CardActionArea>
@@ -75,14 +75,12 @@ const ProfilePage = () => {
               src="https://fashionista.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTY2MDA5OTYwNjg4MjY1MTYz/main-idris-elba-hobbs-and-shaw-premiere-los-angeles-gray-suit.jpg"
               className={classes.large}
             />
- */}{" "}
+ */}
           </Card>
         </Grid>
 
         <Grid item xs={5} className={classes.paper}>
-          <Card>
-            <HorizontalBarChart />
-          </Card>
+          <HorizontalBarChart />
         </Grid>
         <Grid item xs={3} className={classes.paper}>
           <Doughnut />
