@@ -17,13 +17,6 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import TabletIcon from "@material-ui/icons/Tablet";
 
 const DoughnutComponent = ({ className, ...rest }) => {
-  const useStyles = makeStyles(() => ({
-    root: {
-      height: "100%",
-    },
-  }));
-
-  const classes = useStyles();
   const theme = useTheme();
   const data = {
     datasets: [
@@ -81,8 +74,8 @@ const DoughnutComponent = ({ className, ...rest }) => {
   ];
 
   return (
-    <Card className={clsx(classes.root, className)} {...rest}>
-      <CardHeader title="Traffic by Device" />
+    <Card>
+      <CardHeader title="Connection Demographic" />
       <Divider />
       <CardContent>
         <Box height={300} position="relative">
@@ -93,9 +86,11 @@ const DoughnutComponent = ({ className, ...rest }) => {
             <Box key={title} p={1} textAlign="center">
               <Icon color="action" />
               <Typography color="textPrimary" variant="body1">
+                {/* Icon and Title Sizing */}
                 {title}
               </Typography>
-              <Typography style={{ color }} variant="h2">
+              <Typography style={{ color }} variant="h3">
+                {/* Numbers Sizing and Color */}
                 {value}%
               </Typography>
             </Box>
