@@ -3,14 +3,14 @@ import SearchBar from "./SearchBar";
 import NavBar from "./NavBar";
 import ProfilePage from "./ProfilePage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HomePage from "./HomePage";
 
 const App = () => {
   return (
     <>
-      <NavBar />
       <Router>
         <Switch>
-          <Route path="/" exact component={SearchBar} />
+          <Route path="/" exact component={HomePage} />
           <Route path="/profile" exact component={ProfilePage} />
         </Switch>
       </Router>

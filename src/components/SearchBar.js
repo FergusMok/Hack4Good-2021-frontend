@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { motion } from "framer-motion";
 import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
+
+import { useLocation } from "react-router-dom";
 
 const WelcomePage = () => {
   const [search, setSearch] = useState("");
-  const [isTapped, setTapped] = useState(false);
-  //console.log(search);
-  console.log(isTapped);
+  const location = useLocation();
+  console.log(location.pathname);
+  const [isTapped, setTapped] = useState(location.pathname == "/" ? false : true);
 
   const variants = {
     intitial: { y: 300 },
@@ -15,7 +18,7 @@ const WelcomePage = () => {
   };
 
   return (
-    <>
+    <Box>
       <Container maxWidth={isTapped ? "xl" : "md"}>
         <TextField
           component={motion.div}
@@ -28,28 +31,8 @@ const WelcomePage = () => {
           onClick={() => setTapped(true)}
         />
       </Container>
-    </>
+    </Box>
   );
 };
-
-/*
-
-      <motion.div
-        animate={isTapped ? "onTap" : "initial"}
-        variants={variants}
-        onClick={() => setTapped(true)}
-        className="animateSearchBar"
-      >
-        <TextField
-          inputProps={{ className: animateSearchBar }}
-          label="Search field"
-          type="search"
-          variant="outlined"
-          fullWidth={true}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </motion.div>
-
-*/
 
 export default WelcomePage;
