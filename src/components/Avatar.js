@@ -1,3 +1,4 @@
+import Doughnut from "./ProfileComponents/Doughnut";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -42,8 +43,7 @@ const Avatar = () => {
   const classes = useStyles();
   return (
     <>
-      <CssBaseline />
-      <Card className={classes.card} justify="center" height={300}>
+      <Card className={classes.card} justify="center">
         <CardActionArea>
           <CardMedia
             component="img"
