@@ -47,9 +47,16 @@ const Profile = ({ interests, isLoading, error }) => {
     },
     errorCard: {
       width: "auto",
-      height: "auto",
-      textAlign: "centre",
+      height: "100px",
+      textAlign: "center",
+      justify: "center",
+      alignItems: "center",
       color: theme.palette.text.secondary,
+    },
+    containerStyle: {
+      marginTop: "40px",
+      position: "relative",
+      overflow: "visible",
     },
   }));
 
@@ -61,14 +68,20 @@ const Profile = ({ interests, isLoading, error }) => {
         <Grid item lg={3}>
           <Paper className={classes.FormRowPaper}>
             <Typography className={classes.cardTypography}>
-              TOTAL NUMBER OF FORKEDREPOS : {interests.ForkedRepoCount}
+              TOTAL NUMBER OF FORKEDREPOS :
+              <Typography color="textPrimary" variant="h3" align="center">
+                {interests.ForkedRepoCount}
+              </Typography>
             </Typography>
           </Paper>
         </Grid>
         <Grid item lg={3}>
           <Paper className={classes.FormRowPaper}>
             <Typography className={classes.cardTypography}>
-              TOTAL NUMBER OF REPO : {interests.TotalRepoCount}
+              TOTAL NUMBER OF REPO :
+              <Typography color="textPrimary" variant="h3" align="center">
+                {interests.TotalRepoCount}
+              </Typography>
             </Typography>
           </Paper>
         </Grid>
@@ -81,34 +94,34 @@ const Profile = ({ interests, isLoading, error }) => {
   console.log(isLoading);
 
   return error ? (
-    <Paper className={classes.errorCard}>
-      <Typography className={classes.cardTypography}> Hello you have a big fat error </Typography>
-    </Paper>
+    <Container maxWidth={"xl"} className={classes.containerStyle}>
+      <Paper className={classes.errorCard}>
+        <Typography color="textPrimary" variant="h3">
+          Hello, this user does not exist. Please try again{" "}
+        </Typography>
+      </Paper>
+    </Container>
   ) : isLoading ? (
-    <Grid container justify="center">
+    <Grid container justify="center" className={classes.containerStyle}>
       <Loading />
     </Grid>
   ) : (
-    <>
-      <Box mt={6}>
-        <Container maxWidth={"xl"} className={classes.root} marginTop={"50px"}>
-          <Grid container spacing={3} justify="flex-start" xs={12}>
-            <Grid container item lg={9} spacing={3} justify="flex-start" alignItems="flex-start">
-              <Grid item lg={9}>
-                <BarChart interests={interests.concepts} />
-              </Grid>
-              <Grid item lg={3}>
-                <Doughnut interests={interests.extensions} />
-              </Grid>
-            </Grid>
-
-            <Grid container item lg={3} spacing={3} direction="column" justify="flex-start" alignItems="flex-start">
-              {FormRows()}
-            </Grid>
+    <Container maxWidth={"xl"} className={classes.containerStyle}>
+      <Grid container spacing={3} justify="flex-start" xs={12}>
+        <Grid container item lg={9} spacing={3} justify="flex-start" alignItems="flex-start">
+          <Grid item lg={9}>
+            <BarChart interests={interests.concepts} />
           </Grid>
-        </Container>
-      </Box>
-    </>
+          <Grid item lg={3}>
+            <Doughnut interests={interests.extensions} />
+          </Grid>
+        </Grid>
+
+        <Grid container item lg={3} spacing={3} direction="column" justify="flex-start" alignItems="flex-start">
+          {FormRows()}
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

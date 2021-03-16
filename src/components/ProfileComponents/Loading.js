@@ -15,7 +15,7 @@ export default function LinearIndeterminate() {
 
   return (
     <Box width="25%" alignItems={"centre"}>
-      … <CircularProgress size={"20"} color="secondary" />
+      <CircularProgress size={"20"} color="secondary" />
     </Box>
   );
 }

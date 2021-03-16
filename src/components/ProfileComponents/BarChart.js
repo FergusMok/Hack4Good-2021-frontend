@@ -44,6 +44,13 @@ const options = {
         },
       },
     ],
+    xAxes: [
+      {
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    ],
   },
 };
 
@@ -72,6 +79,9 @@ const HorizontalBarChart = (props) => {
       <HorizontalBar data={data} options={options} />
       <Divider />
       <Box display="flex" justifyContent="flex-end" p={1}>
+        <Button color="primary" endIcon={<ArrowRightIcon />} size="small" variant="text">
+          Overview
+        </Button>
         <Button color="primary" endIcon={<ArrowRightIcon />} size="small" variant="text">
           Overview
         </Button>

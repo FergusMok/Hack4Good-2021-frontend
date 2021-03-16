@@ -6,9 +6,12 @@ import Box from "@material-ui/core/Box";
 import { useLocation, useHistory } from "react-router-dom";
 
 const WelcomePage = () => {
-  const [search, setSearch] = useState("");
+  // If the location is at the profile, then we can actually
   const location = useLocation();
+  const [search, setSearch] = useState(location.pathname == "/" ? "" : location.pathname.split("/")[2]);
   const [isTapped, setTapped] = useState(location.pathname == "/" ? false : true);
+
+  console.log(location.pathname.split("/")[2]);
 
   const variants = {
     intitial: { y: 300 },
@@ -35,6 +38,7 @@ const WelcomePage = () => {
             fullWidth={true}
             onChange={(e) => setSearch(e.target.value)}
             onClick={() => setTapped(true)}
+            defaultValue={search}
           />
         </form>
       </Container>

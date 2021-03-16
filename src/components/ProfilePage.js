@@ -65,22 +65,21 @@ const ProfilePage = (props) => {
     profile: {
       marginTop: "50px",
     },
+    flex: {
+      display: "flex",
+      flexDirection: "column",
+      flexWrap: "wrap",
+    },
   }));
 
   const classes = useStyles();
 
   return (
-    <>
+    <Box className={classes.flex}>
       <NavBar />
       <SearchBar />
-      <Profile
-        className={classes.profile}
-        interests={interests}
-        isLoading={isLoading}
-        error={error}
-        style={{ marginTop: "50px" }}
-      />
-    </>
+      <Profile interests={interests} isLoading={isLoading} error={error} />
+    </Box>
   );
 };
 
