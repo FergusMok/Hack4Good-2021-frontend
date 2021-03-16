@@ -68,13 +68,8 @@ const Profile = ({ interests, isLoading, error }) => {
         <Grid item lg={3}>
           <Paper className={classes.FormRowPaper}>
             <Typography className={classes.cardTypography}>
-              TOTAL NUMBER OF TOTALREPOCOUNT : {interests.TotalRepoCount}
+              TOTAL NUMBER OF REPO : {interests.TotalRepoCount}
             </Typography>
-          </Paper>
-        </Grid>
-        <Grid item lg={3}>
-          <Paper className={classes.FormRowPaper}>
-            <Typography className={classes.cardTypography}> TOTAL NUMBER OF : </Typography>
           </Paper>
         </Grid>
       </React.Fragment>
@@ -97,23 +92,18 @@ const Profile = ({ interests, isLoading, error }) => {
     <>
       <Box mt={6}>
         <Container maxWidth={"xl"} className={classes.root} marginTop={"50px"}>
-          <Grid container spacing={3} justify="space-evenly" xs={12}>
-            <Grid item lg={2.5}>
-              <Avatar />
-            </Grid>
-
-            <Grid container item lg={9} spacing={3} justify="space-evenly">
-              {FormRows()}
-            </Grid>
-
-            <Grid container item lg={12} spacing={3} justify="space-evenly" alignItems="flex-start">
+          <Grid container spacing={3} justify="flex-start" xs={12}>
+            <Grid container item lg={9} spacing={3} justify="flex-start" alignItems="flex-start">
               <Grid item lg={9}>
                 <BarChart interests={interests.concepts} />
               </Grid>
               <Grid item lg={3}>
-                {/*                 <Doughnut interests={interests.extensions} />
-                 */}{" "}
+                <Doughnut interests={interests.extensions} />
               </Grid>
+            </Grid>
+
+            <Grid container item lg={3} spacing={3} direction="column" justify="flex-start" alignItems="flex-start">
+              {FormRows()}
             </Grid>
           </Grid>
         </Container>

@@ -47,29 +47,10 @@ const options = {
   },
 };
 
-// I should limit the thing to top 5
-
 const HorizontalBarChart = (props) => {
   const lst1 = [];
   const lst2 = [];
 
-  /*   var allEntries = Object.entries(JSON.parse(JSON.stringify(props.interests)));
-  console.log(allEntries);
-
-  // Sort by descending
-  function sortFunction(a, b) {
-    if (a[0] === b[0]) {
-      return 0;
-    }
-    return a[1] < b[1] ? 1 : -1;
-  }
-  allEntries.sort(sortFunction);
-
-  for (var i = 0; i < 5; i++) {
-    lst1.push(allEntries[i][0]);
-    lst2.push(allEntries[i][1]);
-  }
- */
   console.log(props.interests);
   for (var key in props.interests) {
     // check if the property/key is defined in the object itself, not in parent

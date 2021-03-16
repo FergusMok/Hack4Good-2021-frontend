@@ -73,7 +73,13 @@ const ProfilePage = (props) => {
     <>
       <NavBar />
       <SearchBar />
-      <Profile className={classes.profile} interests={interests} isLoading={isLoading} error={error} />
+      <Profile
+        className={classes.profile}
+        interests={interests}
+        isLoading={isLoading}
+        error={error}
+        style={{ marginTop: "50px" }}
+      />
     </>
   );
 };
