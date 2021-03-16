@@ -1,13 +1,7 @@
 import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
 import Card from "@material-ui/core/Card";
-import { CssBaseline } from "@material-ui/core";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import Box from "@material-ui/core/Box";
@@ -53,9 +47,29 @@ const options = {
   },
 };
 
+// I should limit the thing to top 5
+
 const HorizontalBarChart = (props) => {
   const lst1 = [];
   const lst2 = [];
+
+  /*   var allEntries = Object.entries(JSON.parse(JSON.stringify(props.interests)));
+  console.log(allEntries);
+
+  // Sort by descending
+  function sortFunction(a, b) {
+    if (a[0] === b[0]) {
+      return 0;
+    }
+    return a[1] < b[1] ? 1 : -1;
+  }
+  allEntries.sort(sortFunction);
+
+  for (var i = 0; i < 5; i++) {
+    lst1.push(allEntries[i][0]);
+    lst2.push(allEntries[i][1]);
+  }
+ */
   console.log(props.interests);
   for (var key in props.interests) {
     // check if the property/key is defined in the object itself, not in parent
@@ -77,12 +91,7 @@ const HorizontalBarChart = (props) => {
       <HorizontalBar data={data} options={options} />
       <Divider />
       <Box display="flex" justifyContent="flex-end" p={1}>
-        <Button
-          color="primary"
-          endIcon={<ArrowRightIcon />}
-          size="small"
-          variant="text"
-        >
+        <Button color="primary" endIcon={<ArrowRightIcon />} size="small" variant="text">
           Overview
         </Button>
       </Box>

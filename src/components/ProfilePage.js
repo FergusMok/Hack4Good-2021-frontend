@@ -1,22 +1,28 @@
-import Doughnut from "./ProfileComponents/Doughnut";
 import React, { useState, useEffect } from "react";
-import HorizontalBarChart from "./ProfileComponents/BarChart";
 import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Avatar from "./Avatar.js";
 import NavBar from "./NavBar.js";
 import SearchBar from "./SearchBar";
-import Box from "@material-ui/core/Box";
-import Paper from "@material-ui/core/Paper";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
 import { getInterestsFromGithub } from "./../APICalls";
+import Profile from "./ProfileComponents/Profile.js";
+import Loading from "./ProfileComponents/Loading.js";
+import Box from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
 
 const ProfilePage = (props) => {
   const [interests, setInterests] = useState({});
+  const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   function interestsCallback(interests) {
-    setInterests(interests);
+    if (interests.issue == "InValid UserName") {
+      console.log("THIS IS INTERESTS!");
+      console.log(interests);
+      setError(true);
+      setLoading(false);
+    } else {
+      setInterests(interests);
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -56,57 +62,18 @@ const ProfilePage = (props) => {
       padding: "5px",
       color: "textSecondary",
     },
+    profile: {
+      marginTop: "50px",
+    },
   }));
 
-  const FormRows = () => {
-    return (
-      <React.Fragment>
-        <Grid item lg={3}>
-          <Paper className={classes.FormRowPaper}>
-            <Typography className={classes.cardTypography}> TOTAL NUMBER OF : </Typography>
-          </Paper>
-        </Grid>
-        <Grid item lg={3}>
-          <Paper className={classes.FormRowPaper}>
-            <Typography className={classes.cardTypography}> TOTAL NUMBER OF : </Typography>
-          </Paper>
-        </Grid>
-        <Grid item lg={3}>
-          <Paper className={classes.FormRowPaper}>
-            <Typography className={classes.cardTypography}> TOTAL NUMBER OF : </Typography>
-          </Paper>
-        </Grid>
-      </React.Fragment>
-    );
-  };
-
   const classes = useStyles();
+
   return (
     <>
       <NavBar />
       <SearchBar />
-      <Box mt={6}>
-        <Container maxWidth={"xl"} className={classes.root} marginTop={"50px"}>
-          <Grid container spacing={3} justify="space-evenly" xs={12}>
-            <Grid item lg={2.5}>
-              <Avatar />
-            </Grid>
-
-            <Grid container item lg={9} spacing={3} justify="space-evenly">
-              {FormRows()}
-            </Grid>
-
-            <Grid container item lg={12} spacing={3} justify="space-evenly" alignItems="flex-start">
-              <Grid item lg={9}>
-                <HorizontalBarChart interests={interests} />
-              </Grid>
-              <Grid item lg={3}>
-                <Doughnut />
-              </Grid>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+      <Profile className={classes.profile} interests={interests} isLoading={isLoading} error={error} />
     </>
   );
 };

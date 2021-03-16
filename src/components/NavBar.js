@@ -50,7 +50,7 @@ export default function ButtonAppBar(props) {
     <>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar position="static" elevation={0} style={{ backgroundColor: "#344955" }}>
+        <AppBar position="sticky" elevation={0} style={{ backgroundColor: "#344955" }}>
           <Toolbar>
             <IconButton onClick={(e) => pushHome()}>
               <Home className={classes.icon} />
