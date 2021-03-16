@@ -4,7 +4,7 @@ import "./WordAnimation.css";
 const WordAnimation = () => {
   return (
     <div id="test">
-      <p>Scrap for Good</p>
+      <p>Scrape for Good</p>
     </div>
   );
 };
