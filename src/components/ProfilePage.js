@@ -20,8 +20,11 @@ const ProfilePage = (props) => {
   function interestsCallback(interests) {
     setInterests(interests);
   }
-  getInterestsFromGithub(interestsCallback, props.username);
-  useEffect(() => {}, []);
+
+  useEffect(() => {
+    // console.log(props.username);
+    getInterestsFromGithub(interestsCallback, props.match.params.username);
+  }, []);
 
   const useStyles = makeStyles((theme) => ({
     root: {

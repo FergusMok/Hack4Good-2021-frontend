@@ -56,14 +56,13 @@ const options = {
 const HorizontalBarChart = (props) => {
   const lst1 = [];
   const lst2 = [];
+  console.log(props.interests);
   for (var key in props.interests) {
     // check if the property/key is defined in the object itself, not in parent
     if (props.interests.hasOwnProperty(key)) {
       const val = props.interests[key];
-      lst1.append(key);
-      lst2.append(val);
-
-      //console.log(key, dictionary[key]);
+      lst1.push(key);
+      lst2.push(val);
     }
   }
   data.labels = lst1;
