@@ -56,7 +56,7 @@ export default function ButtonAppBar(props) {
               <Home className={classes.icon} />
             </IconButton>
             <Typography variant="h6" padding={10} className={classes.title} className={classes.icon}>
-              Our Application Name
+              Scrap For Good
             </Typography>
             {/*           <Button color="inherit">Login</Button>
              */}
