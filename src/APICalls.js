@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const backendURL = "http://127.0.0.1:5000";
+const backendURL = "http://h4g-backend.herokuapp.com";
 
 export function getInterestsFromGithub(callback, username) {
   const params = { githubID: username };

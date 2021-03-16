@@ -3,11 +3,9 @@ import React, { useState, useEffect } from "react";
 import HorizontalBarChart from "./ProfileComponents/BarChart";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { CssBaseline } from "@material-ui/core";
 import Avatar from "./Avatar.js";
 import NavBar from "./NavBar.js";
 import SearchBar from "./SearchBar";
-import Card from "@material-ui/core/Card";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import Container from "@material-ui/core/Container";
@@ -22,7 +20,6 @@ const ProfilePage = (props) => {
   }
 
   useEffect(() => {
-    // console.log(props.username);
     getInterestsFromGithub(interestsCallback, props.match.params.username);
   }, []);
 
@@ -66,26 +63,17 @@ const ProfilePage = (props) => {
       <React.Fragment>
         <Grid item lg={3}>
           <Paper className={classes.FormRowPaper}>
-            <Typography className={classes.cardTypography}>
-              {" "}
-              TOTAL NUMBER OF :{" "}
-            </Typography>
+            <Typography className={classes.cardTypography}> TOTAL NUMBER OF : </Typography>
           </Paper>
         </Grid>
         <Grid item lg={3}>
           <Paper className={classes.FormRowPaper}>
-            <Typography className={classes.cardTypography}>
-              {" "}
-              TOTAL NUMBER OF :{" "}
-            </Typography>
+            <Typography className={classes.cardTypography}> TOTAL NUMBER OF : </Typography>
           </Paper>
         </Grid>
         <Grid item lg={3}>
           <Paper className={classes.FormRowPaper}>
-            <Typography className={classes.cardTypography}>
-              {" "}
-              TOTAL NUMBER OF :{" "}
-            </Typography>
+            <Typography className={classes.cardTypography}> TOTAL NUMBER OF : </Typography>
           </Paper>
         </Grid>
       </React.Fragment>
@@ -108,14 +96,7 @@ const ProfilePage = (props) => {
               {FormRows()}
             </Grid>
 
-            <Grid
-              container
-              item
-              lg={12}
-              spacing={3}
-              justify="space-evenly"
-              alignItems="flex-start"
-            >
+            <Grid container item lg={12} spacing={3} justify="space-evenly" alignItems="flex-start">
               <Grid item lg={9}>
                 <HorizontalBarChart interests={interests} />
               </Grid>

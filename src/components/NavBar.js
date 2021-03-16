@@ -8,7 +8,7 @@ import Slide from "@material-ui/core/Slide";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Home from "@material-ui/icons/HomeWorkTwoTone";
 import IconButton from "@material-ui/core/IconButton";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
