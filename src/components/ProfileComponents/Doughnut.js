@@ -11,7 +11,6 @@ import {
   useTheme,
 } from "@material-ui/core";
 import { Doughnut } from "react-chartjs-2";
-import clsx from "clsx";
 import LaptopMacIcon from "@material-ui/icons/LaptopMac";
 import PhoneIcon from "@material-ui/icons/Phone";
 import TabletIcon from "@material-ui/icons/Tablet";
@@ -22,7 +21,11 @@ const DoughnutComponent = ({ className, ...rest }) => {
     datasets: [
       {
         data: [63, 15, 22],
-        backgroundColor: [colors.indigo[500], colors.red[600], colors.orange[600]],
+        backgroundColor: [
+          colors.indigo[500],
+          colors.red[600],
+          colors.orange[600],
+        ],
         borderWidth: 8,
         borderColor: colors.common.white,
         hoverBorderColor: colors.common.white,

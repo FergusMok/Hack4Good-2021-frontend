@@ -12,6 +12,7 @@ import Divider from "@material-ui/core/Divider";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
+import { useState, useEffect } from "react";
 
 const data = {
   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -26,14 +27,6 @@ const data = {
         "rgba(75, 192, 192, 1)",
         "rgba(153, 102, 255, 1)",
         "rgba(255, 159, 64, 1)",
-
-        /*         "rgba(255, 99, 132, 0.2)",
-        "rgba(54, 162, 235, 0.2)",
-        "rgba(255, 206, 86, 0.2)", // a see-through option
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(153, 102, 255, 0.2)",
-        "rgba(255, 159, 64, 0.2)",
- */
       ],
       borderColor: [
         "rgba(255, 99, 132, 1)",
@@ -59,7 +52,24 @@ const options = {
     ],
   },
 };
-const HorizontalBarChart = () => {
+
+const HorizontalBarChart = (props) => {
+  const lst1 = [];
+  const lst2 = [];
+  console.log(props.interests);
+  for (var key in props.interests) {
+    // check if the property/key is defined in the object itself, not in parent
+    if (props.interests.hasOwnProperty(key)) {
+      const val = props.interests[key];
+      lst1.push(key);
+      lst2.push(val);
+    }
+  }
+  data.labels = lst1;
+  const data_set = data.datasets[0];
+  data_set.data = lst2;
+  data.datasets = [data_set];
+
   return (
     <Card>
       <CardHeader title="Interest Graph" />
@@ -67,7 +77,12 @@ const HorizontalBarChart = () => {
       <HorizontalBar data={data} options={options} />
       <Divider />
       <Box display="flex" justifyContent="flex-end" p={1}>
-        <Button color="primary" endIcon={<ArrowRightIcon />} size="small" variant="text">
+        <Button
+          color="primary"
+          endIcon={<ArrowRightIcon />}
+          size="small"
+          variant="text"
+        >
           Overview
         </Button>
       </Box>
