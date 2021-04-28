@@ -5,7 +5,7 @@
 
 # Hack4Good2021
 
-This project was a submission for the Hack4Good hackathon, and we achieved the finalist position.
+This project was a submission for the Hack4Good hackathon organized by Developer Student Club NUS, and we achieved the finalist position.
 
 # Aim
 
