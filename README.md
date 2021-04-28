@@ -1,7 +1,7 @@
 
 <h1 align="center">Scrape For Good</h1>
 
-![GIF for Application](https://github.com/FergusMok/Scrape-For-Good/photos/video.gif)
+<p align="center"><img src="photos/video.gif" width="100%"/></p>
 
 # Hack4Good2021
 
