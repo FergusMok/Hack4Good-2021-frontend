@@ -22,7 +22,7 @@ We made a dictionary of terms, parsing through all the repositories of the user,
 
 # Team
 
-Rajarshi Basu - Backend for Github (https://github.com/rajobasu, https://github.com/rajobasu/H4G-Githubscraper)
-Richard Yang - Backend for LinkedIn (https://github.com/RichardYCX, https://github.com/RichardYCX/Hack4Good-2021-LinkedIn_Keyword_Extractor)
-Amelia Tan - Pitch (https://github.com/AmeliaTYR)
+Rajarshi Basu - Backend for Github (https://github.com/rajobasu, https://github.com/rajobasu/H4G-Githubscraper)  
+Richard Yang - Backend for LinkedIn (https://github.com/RichardYCX, https://github.com/RichardYCX/Hack4Good-2021-LinkedIn_Keyword_Extractor)  
+Amelia Tan - Pitch (https://github.com/AmeliaTYR)  
 Fergus Mok - Frontend
